@@ -1,0 +1,21 @@
+{# subscription Block #}
+
+<div class='subscription-block'>
+  <div class='inner-wrapper'>
+    <h2>{{ content.content.1.title|raw }}</h2>
+  </div>
+  <div class='subs-content'>
+    <div class='content-wrapper'>
+      {{content.content.1.body|raw }}
+      {# Used media component for image render #}
+      {% include "./media.twig" with {
+        image: content.content.1.newsletter_image,
+      } %}
+    </div>
+    <div class='content-wrapper-bottom'>
+      <input placeholder = "{{content.content.1.placeholder }}">
+      <button> {{content.content.1.label}} </button>
+    </div>
+    <p class='note'>{{content.content.1.sub_description|raw}}</p>
+  </div>
+</div>

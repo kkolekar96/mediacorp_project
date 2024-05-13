@@ -1,0 +1,127 @@
+@import './mixin';
+@import './breakpoint';
+@import './base';
+@import './variables';
+
+.primary-menu {
+	/* UI-item */
+  display: none;
+	border-bottom: none;
+  flex-flow: column;
+	position: relative;
+	z-index: 10;
+
+	@include list-reset;
+
+	@include large {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		flex-flow: unset;
+  }
+
+	&__item {
+		/* LI-item */
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		border-top: 1px solid $gray;
+		width: 100%;
+
+		@include large {
+			width: auto;
+			padding: 13px 15px 15px 0;
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+
+		&:last-of-type {
+			&::after {
+				content: '';
+				width: 7px;
+				height: 7px;
+				border-bottom: 2px solid $primary;
+				border-left: 2px solid $primary;
+				transform: rotate(315deg);
+				transition: transform .3s;
+				display: inline-block;
+				margin-left: 10px;
+				margin-top: 3px;
+        cursor: pointer;
+			}
+
+			&:hover {
+				.child-menu {
+					display: block;
+				}
+			}
+		}
+	}
+
+	/* anchor tag primary menu */
+	&__link {
+		font-size: 1rem;
+		line-height: 1.1875;
+		padding: 20px 15px;
+		text-decoration: none;
+		font-weight: 600;
+		width: 100%;
+		color: $text;
+
+		@include large {
+			border-bottom: none;
+			display: inline-block;
+			text-transform: none;
+			position: relative;
+			width: auto;
+			font-size: 1rem;
+			font-weight: 600;
+			padding: 0;
+		}
+
+		&--active,
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+
+.child-menu {
+	display: none;
+	position: fixed;
+	width: fit-content;
+	border: 1px solid $gray;
+	top: 46px;
+	border-radius: 5px;
+	box-shadow: 0 2px 15px 0 rgba(0,0,0,0.3);
+	z-index: 1;
+	right: 0;
+
+	.primary-menu {
+		display: block;
+
+		&__item {
+			padding: 0;
+	
+			.primary-menu__link {
+				padding: 13px 15px 15px;
+			}
+
+			&:last-child {
+				&::after {
+					content: unset;
+				}
+			}
+		}
+	}
+}
+
+.header {
+	border-bottom: solid 1px $gray;
+}

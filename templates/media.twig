@@ -1,0 +1,14 @@
+{# Media Component #}
+
+<div class='hero-wrapper'>
+	<picture class='image {{addtional_class}}'>
+		<img class='image' alt='{{ alt|raw }}' title='{{ title|raw }}'
+			src= {{ image }} 
+		/>
+	</picture>
+  {% if figure__caption %}
+    <span class="figure__caption">
+      {{ figure__caption|raw }}
+    </span>
+  {% endif %}
+</div>

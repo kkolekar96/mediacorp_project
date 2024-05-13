@@ -1,0 +1,95 @@
+@import './breakpoint';
+@import './variables';
+@import './mixin';
+
+$container-width: 1288px;
+$container-large-width: 1440px;
+
+body {
+  background-color: $white;
+  color: $text;
+  margin: 0;
+  font-family: 'Proxima Nova Condensed', sans-serif;
+}
+
+h1 {
+  margin: 30px 0 55px 0;
+}
+
+h2 {
+  color: $dark-gray;
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 1.11538;
+  margin: 0 0 0.5em;
+  text-transform: uppercase;
+}
+
+.text-para {
+  max-width: 100%;
+
+  @include large {
+    font-weight: 400;
+    border-bottom: 1px solid $gray;
+    margin: 0 auto 30px;
+    padding-bottom: 20px;
+    max-width: 697px;
+  
+  }
+
+  ul {
+    margin: 27px 0 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      padding: 0 0 0 30px;
+      margin: 0 0 10px;
+      font-size: 1rem;
+      position: relative;
+
+      @include large {
+        padding: 0 0 0 15px;
+        margin: 0 0 10px;
+        font-weight: normal;
+        font-size: 1.125rem;
+        line-height: 1.27778;
+      }
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 17px;
+        width: 10px;
+        height: 10px;
+        left: 0;
+        border-radius: 50%;
+        background-color: $link;
+
+        @include large {
+          top: 8px;
+          width: 5px;
+          height: 5px;
+        }
+      }
+    }
+  }
+}
+
+p {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.55556;
+  letter-spacing: -0.3px;
+  margin: 0 0 16px 0;
+  color: $text;
+}
+
+button {
+  @include primary-btn;
+}
+
+a {
+  text-decoration: none;
+  color: $primary;
+}

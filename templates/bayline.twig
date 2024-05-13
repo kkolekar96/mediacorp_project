@@ -1,0 +1,28 @@
+{# Byline Block #}
+
+<div class="author-wrap">
+  <div class="image">
+  {# Used media component for img #}
+    {% include "media.twig" with {
+      image: content.byline_detail.0.hero_media.thumbnail,
+      addtional_class: 'byline-img',
+      alt: content.byline_detail.0.hero_media.name,
+      title: content.byline_detail.0.hero_media.name,
+    } %}
+  </div>
+  <span class='author-card__by'>BY</span>
+  {# Used link component for linkable text #}
+  {% include "link.twig" with {
+    link_text: content.byline_detail.0.title,
+    link: content.byline_detail.0.url,
+    addtional_class: 'byline-name'
+  } %}
+</div>
+<div class='publish-date'>
+  <span> Published </span>
+  {{ content.publishdate|date("M d, Y") }}
+</div>
+<div class='update-date'>
+  <span> Updated </span>
+  {{ content.lastupdated|date("M d, Y") }}
+</div>

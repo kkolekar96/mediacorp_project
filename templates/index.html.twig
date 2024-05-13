@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+    <meta name="description" content="Mediacorp Today">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Mediacorp Today</title>
+	</head>
+  <style crossorigin='anonymous'>
+    @import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
+  </style>
+	<body>
+		<header class='header'>
+			<div class='header-inner container'>
+				{% include "header.html.twig" %}
+			</div>
+		</header>
+		<div>
+			{% include "article.html.twig" %}
+		</div>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+@import './variables';
+
+.cia-widget {
+  padding-top: 15px;
+
+  &__column {
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: solid 1px $gray;
+  }
+
+  &__figure {
+    flex: 0 0 35%;
+    margin-bottom: 0;
+    margin-right: 10px;
+    max-width: 114px;
+    height: auto;
+    overflow: visible;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  .list-object {
+    &__heading {
+      font-size: .875rem;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.35714;
+    }
+
+    &__heading-link {
+      text-decoration: none;
+      color: $text;
+    }
+  }
+}
+
+.nav-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid $primary;
+
+  .button {
+    width: 50%;
+    font-size: 14px;
+    padding: 10px;
+    font-weight: bold;
+    line-height: 1.1875;
+    cursor: pointer;
+  }
+
+  .inactive {
+    background-color: $muted;
+    color: $dark-gray;
+  }
+}
+
+div.inactive,
+#tab-2 {
+  display: none;
+} 

@@ -1,0 +1,78 @@
+@import './variables';
+
+.subscription-block {
+  width: 100%;
+  margin-bottom: 30px;
+  border: solid 1px $gray;
+
+  @include large {
+    margin: 0;  
+  }
+
+  .inner-wrapper {
+    background-color: $primary;
+    padding: 12px 0 1px 20px;
+
+    h2 {
+      color: $white;
+    }
+  }
+
+  .subs-content {
+    padding: 23px 20px 15px;
+  }
+
+  .content-wrapper {
+    display: flex;
+    position: relative;
+
+    p {
+      padding-right: 20px;
+      width: 47%;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .hero-wrapper {
+      position: absolute;
+      top: -30px;
+      width: 142px;
+      max-height: 130px;
+      right: 0;
+    }
+  }
+
+  .content-wrapper-bottom {
+    display: flex;
+    margin-top: 16px;
+
+    input {
+      word-break: normal;
+      padding: 12px 10px 12px 0;
+      margin-bottom: 0;
+      font-weight: 500;
+      text-transform: uppercase;
+      width: 100%;
+      border: none;
+      color: white;
+    }
+
+    button {
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        @include arrow;
+
+        box-shadow: -2px 2px 0 0 $white;
+      }
+    }
+  }
+
+  .note {
+    font-size: 12px;
+    padding: 0.9rem 0 0 0;
+    border-top: 1px solid $gray;
+    margin: 0;
+  }
+}

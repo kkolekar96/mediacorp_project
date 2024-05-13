@@ -1,0 +1,17 @@
+// Breakpoints (we can add multiple as per device )
+$large: 1024px;
+$max-xl: 1366px;
+
+/// Mixin - large Breakpoint
+@mixin large {
+  @media only screen and (min-width: $large) {
+    @content;
+  }
+}
+
+/// Mixin - max-xl Breakpoint
+@mixin max-xl {
+  @media only screen and (min-width: $max-xl) {
+    @content;
+  }
+}

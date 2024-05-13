@@ -1,0 +1,75 @@
+<link rel="stylesheet" type="text/css" href="./css/styles.css">
+
+{% set content = content.0 %}
+<div class='main-container'>
+  <h1> {{ content.title |raw}} </h1>
+
+	<div class='layout layout--twocol-section'>
+		<div class='layout__region--first'>
+      {# Used media component for banner img #}
+			{% include "media.twig" with {
+				image: content.image.media_image,
+				figure__caption: content.image.description,
+        alt: content.image.description,
+        title: content.image.description,
+			} %}
+
+      {# Used text component for text #}
+			{% include "text.twig" with {
+				description: content.tldr,
+			} %}
+		</div> 
+		<div class='layout__region--second'>
+      {# Used byline component #}
+			{% include "bayline.twig" %}
+		</div>
+	</div>
+
+	<div class='layout layout--twocol-section'>
+		<div class='layout__region--first'>
+      {# Used text component article body #}
+			{% include "text.twig" with {
+				description: content.content.0.body
+			} %}
+
+			<div class="topic-wrapper">
+				<h2 class='h2'> Related topics </h2>
+				{% for topic in content.topics %}
+        {# Used link component topics #}
+					{% include "link.twig" with {
+						link: topic.link,
+						link_text: topic.name,
+						addtional_class: 'link--topic'
+					} %}
+				{% endfor %}
+			</div>
+
+      {# Used news component for news block #}
+			{% include "news.twig" %}
+
+			<div class='subscribe-block'>
+		    <div class='bottom-widget'>
+          {# Used subscription component for subscription block #}
+			    {% include "subscription.twig" %}
+
+          {# Used media component for what's app banner #}
+          {% for image in content.content %}
+            {% if image.view_more.url %}
+              {# Used media component for banner img #}
+              <a href={{ image.view_more.url }} class='whats-app-banner'>
+                {% include "media.twig" with {
+                  image: image.hero_media.thumbnail,
+                  alt: content.title,
+                  title: content.title,
+                } %}
+              </a>
+            {% endif %}
+          {% endfor %}
+		    </div>
+	    </div>
+		</div>
+		<div class='layout__region--second'>
+			{% include "large-col.twig" %}
+		</div>
+	</div>
+</div>

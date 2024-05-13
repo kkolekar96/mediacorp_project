@@ -1,0 +1,172 @@
+@import './variables';
+@import './breakpoint';
+@import './mixin';
+
+.news-block,
+.topic-wrapper,
+.subscribe-block {
+  max-width: 100%;
+  padding-bottom: 20px;
+
+  @include large {
+    max-width: 697px;
+    margin: 0 auto 30px;
+  }
+}
+
+.topic-wrapper {
+  border: none;
+
+  @include large {
+    border-bottom: solid 1px $gray;
+  }
+}
+
+.author-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  div.image {
+    margin-right: 15px;
+  }
+
+  .author-card__by{
+    margin-right: 5px;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .byline-name {
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+}
+
+.bottom-widget {
+  display: block;
+  max-width: 100%;
+
+  @include large {
+    display: flex;
+    justify-content: space-between;
+    max-width: 697px;
+  }
+
+  .subscription-block {
+    flex: 0 0 calc(100% - 47.3% - 12px);
+  }
+
+  .whats-app-banner {
+    flex: 0 0 calc(47.3% - 12px);
+  }
+}
+
+.cta {
+  background-color: $muted;
+  padding: 15px 20px;
+  text-transform: initial;
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+  }
+
+  &__heading {
+    margin: 0 5px 0 0;
+    text-align: left;
+    font-size: .875rem;
+    font-weight: 500;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  .link {
+    color: $primary;
+
+    &--category {
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    &--explore {
+      font-size: .75rem;
+      font-weight: 500;
+      position: relative;
+      padding-right: 12px;
+
+      &::after {
+        @include arrow;
+
+        box-shadow: -2px 2px 0 0 $primary;
+        top: 4px;
+        right: 0;
+      }
+    }
+
+    &--overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+.publish-date,
+.update-date {
+  font-weight: bold;
+  font-size: 14px;
+
+  span{
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.read-also-wrapper {
+  display: flex;
+
+  .read-also {
+    background: $muted-light;
+    padding: 15px 15px 0;
+    margin: 0 0 30px 15px;
+  }
+
+  h3 {
+    font-size: 12px;
+    font-weight: 600;
+    border: 0;
+    color: $primary;
+    text-transform: uppercase;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+    margin-top: 0;
+
+    @include large {
+      font-size: 14px;
+    }
+  }
+
+  a {
+    color: $text;
+    font-size: 16px;
+    font-weight: 600;
+    color: $text;
+    padding-bottom: 15px;
+    display: inline-block;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

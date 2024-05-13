@@ -1,0 +1,68 @@
+//Container styles for page
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include max-xl {
+    max-width: $container-width;
+  }
+
+  &--large {
+    @include max-xl {
+      max-width: $container-large-width;
+    }
+  }
+}
+
+.layout--twocol-section {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+
+  @include large {
+    display: flex;
+    margin: 0 -12.5px;
+    flex-direction: unset;
+  }
+}
+  
+// Two col layout
+.layout {
+	// First region
+	&__region--first {
+    order: 2;
+    flex: 100%;
+
+    @include large {
+      order: 1;
+      flex: 0 1 calc(100% - 328px);
+    }
+	}
+
+	// second region
+	&__region--second {
+    order: 1;
+    flex: 100%;
+    margin-bottom: 25px;
+
+    @include large {
+      order: 2;
+      flex: 0 1 328px;
+    }
+	}
+
+	&__region--first,
+	&__region--second {
+		padding: 0 12.5px;
+	}
+}
+  
+.main-container {
+  padding: 0 15px;
+
+  @include large {
+    max-width: calc(1288px - 65px* 2);
+    margin: 0 auto;
+  }
+}

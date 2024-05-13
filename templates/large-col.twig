@@ -1,0 +1,56 @@
+<div class='tab-container'>
+  <div class='nav-wrapper'>
+    <button class='button nav-widget-tab' data-id="tab-1">YOU MIGHT LIKE</button>
+    <button class='button nav-widget-tab inactive' data-id="tab-2">TRENDING</button>
+  </div>
+  <div class="content-wrapper">
+    <div class="tab-container" id="tab-1">
+      <div class="cia-widget">
+        {% for item in sidebar.items1 %}
+          <div class="cia-widget__column">
+            <div class="cia-widget__figure">
+              <a href={{item.url}}>
+                {% include "media.twig" with {
+                  image: item.image,
+                  alt: item.title,
+                  title: item.title,
+                } %}
+              </a>
+            </div>
+            <div class="cia-widget__content">
+              <div class="list-object">
+                <h4 class="h4 list-object__heading">
+                  <a href={{item.url}} class="list-object__heading-link">{{item.title}}</a>
+                </h4>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="tab-container" id="tab-2">
+      <div class="cia-widget">
+        {% for item in sidebar.items2 %}
+          <div class="cia-widget__column">
+            <div class="cia-widget__figure">
+              <a href={{item.url}}>
+                {% include "media.twig" with {
+                  image: item.image,
+                  alt: item.title,
+                  title: item.title,
+                } %}
+              </a>
+            </div>
+            <div class="cia-widget__content">
+              <div class="list-object">
+                <h4 class="h4 list-object__heading">
+                  <a href={{item.url}} class="list-object__heading-link">{{item.title}}</a>
+                </h4>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

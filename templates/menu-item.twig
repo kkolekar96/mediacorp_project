@@ -1,0 +1,19 @@
+{# Menu Item for header #}
+
+{% macro menu(links, additional_menu_class='') %}
+  {% import _self as menus %}
+    <ul class='primary-menu {{additional_menu_class}}'>
+      {% for link in links %}
+        <li class='primary-menu__item'>
+          <a class='primary-menu__link' href="{{ link.uri }}">{{ link.title }}</a>
+          {% if not link.below|default([]) is empty %}
+            {{ menus.menu(link.below, 'child-menu') }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>     
+{% endmacro %}
+
+{% import _self as menus %}
+
+{{menus.menu(links)}}
